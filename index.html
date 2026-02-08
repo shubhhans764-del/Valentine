@@ -61,11 +61,6 @@ button {
 
 <body>
 
-<!-- 🎵 Audio (already uploaded to GitHub) -->
-<audio id="bgMusic">
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
-
 <h1><b>Coco, Will you be my Valentine? ❤️</b></h1>
 
 <button id="yes" onclick="yesClicked()">YES</button>
@@ -96,14 +91,17 @@ function moveNo() {
 noBtn.addEventListener("mouseover", moveNo);
 noBtn.addEventListener("touchstart", moveNo);
 
-// YES clicked
+// YES clicked (music + final screen)
 function yesClicked() {
-    document.getElementById("bgMusic").play();
-
     document.body.innerHTML = `
+        <audio autoplay loop>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+
         <h1 style="font-size:34px; margin-top:10vh;">
-            <b>Yayy!Looking forward to us!!You're the bestt muahhhh😘- 🦦</b>
+            <b>Yayy! Looking forward to us!! You're the bestt muahhhh 😘 - 🦦</b>
         </h1>
+
         <img src="photo.jpg"
              style="width:85%; max-width:400px; margin-top:30px; border-radius:20px;" />
     `;
