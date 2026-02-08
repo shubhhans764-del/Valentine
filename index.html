@@ -25,17 +25,9 @@ body {
 }
 
 @keyframes floatUp {
-    0% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-10vh);
-        opacity: 0;
-    }
+    0% { transform: translateY(100vh); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
 }
 
 h1 {
@@ -64,15 +56,6 @@ button {
     color: white;
     position: absolute;
 }
-
-/* YES screen graffiti chaos */
-.graffiti {
-    position: absolute;
-    font-weight: bold;
-    font-size: 28px;
-    transform: rotate(-20deg);
-    opacity: 0.9;
-}
 </style>
 </head>
 
@@ -84,7 +67,7 @@ button {
 <button id="no">NO</button>
 
 <script>
-// Create floating hearts
+// Floating hearts
 for (let i = 0; i < 30; i++) {
     let heart = document.createElement("div");
     heart.className = "heart";
@@ -95,7 +78,7 @@ for (let i = 0; i < 30; i++) {
     document.body.appendChild(heart);
 }
 
-// Move NO button away (desktop + mobile)
+// Runaway NO button (desktop + phone)
 const noBtn = document.getElementById("no");
 
 function moveNo() {
@@ -108,24 +91,7 @@ function moveNo() {
 noBtn.addEventListener("mouseover", moveNo);
 noBtn.addEventListener("touchstart", moveNo);
 
-// YES clicked
+// YES clicked — clean screen
 function yesClicked() {
     document.body.innerHTML = `
-    <h1 style="font-size:36px; margin-top:20vh;"><b>Fuck yeahhhhh muahh 💋</b></h1>
-    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" width="250"/>
-    `;
-
-    // Add graffiti text everywhere
-    for (let i = 0; i < 20; i++) {
-        let tag = document.createElement("div");
-        tag.className = "graffiti";
-        tag.innerText = "LOVE YOU COCO";
-        tag.style.left = Math.random() * 100 + "vw";
-        tag.style.top = Math.random() * 100 + "vh";
-        document.body.appendChild(tag);
-    }
-}
-</script>
-
-</body>
-</html>
+        <h1 style="font-size:36px; margin-top:20vh;"><b>Fuck yeahhhhh muahh 💋</b></h1>
