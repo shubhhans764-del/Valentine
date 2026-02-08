@@ -56,15 +56,35 @@ button {
     color: white;
     position: absolute;
 }
+
+#finalScreen {
+    display: none;
+}
 </style>
 </head>
 
 <body>
 
-<h1><b>Coco, Will you be my Valentine? ❤️</b></h1>
+<!-- 🎵 Audio (must be a Safari-compatible MP3) -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-<button id="yes" onclick="yesClicked()">YES</button>
-<button id="no">NO</button>
+<!-- Start Screen -->
+<div id="startScreen">
+    <h1><b>Coco, Will you be my Valentine? ❤️</b></h1>
+    <button id="yes" onclick="yesClicked()">YES</button>
+    <button id="no">NO</button>
+</div>
+
+<!-- Final Screen -->
+<div id="finalScreen">
+    <h1 style="font-size:34px; margin-top:10vh;">
+        <b>Yayy! Looking forward to us!! You're the bestt muahhhh 😘 - 🦦</b>
+    </h1>
+    <img src="photo.JPG"
+         style="width:85%; max-width:400px; margin-top:30px; border-radius:20px;" />
+</div>
 
 <script>
 // Floating hearts
@@ -91,20 +111,19 @@ function moveNo() {
 noBtn.addEventListener("mouseover", moveNo);
 noBtn.addEventListener("touchstart", moveNo);
 
-// YES clicked (music + final screen)
+// YES clicked — play music and switch screens
 function yesClicked() {
-    document.body.innerHTML = `
-        <audio autoplay loop>
-            <source src="music.mp3" type="audio/mpeg">
-        </audio>
+    const music = document.getElementById("bgMusic");
 
-        <h1 style="font-size:34px; margin-top:10vh;">
-            <b>Yayy! Looking forward to us!! You're the bestt muahhhh 😘 - 🦦</b>
-        </h1>
+    // Important for Safari
+    music.currentTime = 0;
+    music.volume = 0.7;
+    music.play().catch(() => {
+        alert("Tap once more to enable sound ❤️");
+    });
 
-        <img src="photo.JPG"
-             style="width:85%; max-width:400px; margin-top:30px; border-radius:20px;" />
-    `;
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("finalScreen").style.display = "block";
 }
 </script>
 
