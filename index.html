@@ -21,7 +21,7 @@ body {
     position: absolute;
     font-size: 24px;
     animation: floatUp 6s linear infinite;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 @keyframes floatUp {
@@ -32,7 +32,7 @@ body {
 
 h1 {
     margin-top: 25vh;
-    font-size: 32px;
+    font-size: 30px;
     padding: 0 20px;
 }
 
@@ -78,7 +78,7 @@ for (let i = 0; i < 30; i++) {
     document.body.appendChild(heart);
 }
 
-// Runaway NO button (desktop + phone)
+// Runaway NO button
 const noBtn = document.getElementById("no");
 
 function moveNo() {
@@ -91,7 +91,14 @@ function moveNo() {
 noBtn.addEventListener("mouseover", moveNo);
 noBtn.addEventListener("touchstart", moveNo);
 
-// YES clicked — clean screen
+// YES clicked
 function yesClicked() {
     document.body.innerHTML = `
-        <h1 style="font-size:36px; margin-top:20vh;"><b>Fuck yeahhhhh muahh 💋</b></h1>
+        <h1 style="font-size:34px; margin-top:10vh;"><b>Fuck yeahhhhh muahh 💋</b></h1>
+        <img src="photo.jpg" style="width:85%; max-width:400px; margin-top:30px; border-radius:20px;" />
+    `;
+}
+</script>
+
+</body>
+</html>
